@@ -1,1 +1,1 @@
-// need an export for the Workout.js file
+module.exports = { Workouts: require("./workouts.js") }
