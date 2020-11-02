@@ -1,3 +1,5 @@
+module.exports = function(app){}
+
 // need route to get all workouts
 
 // need route to get individual workouts

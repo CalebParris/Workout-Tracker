@@ -1,5 +1,15 @@
-// need route for the index.html
+const path = require("path");
 
-// need route for the exercise.html
+module.exports = function(app){
+    app.get("/", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public", "index.html"));
+    });
 
-// need route for the stats.html
+    app.get("/exercise", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public", "exercise.html"));
+    });
+
+    app.get("/stats", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public", "stats.html"));
+    });
+}
