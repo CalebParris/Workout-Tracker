@@ -1,12 +1,24 @@
-module.exports = function(app){}
+const db = require("../models");
 
-// need route to get all workouts
+module.exports = function(app){
+    app.get("/api/workouts", (req, res) => {
+        // get all workouts
+    });
 
-// need route to get individual workouts
+    app.get("/api/workouts/:id", (req, res) => {
+        // get specific workout
+    });
 
-// need route to add a new workout
+    app.get("/api/workouts/range", (req, res) => {
+        // not sure what this is for jus yet but will code it once I figure that out
+    });
 
-// need route to add new exercise
+    app.post("/api/workouts", (req, res) => {
+        // create a new workout
+    });
 
-// need route to update the previous workout
+    app.put("/api/workouts/:id", (req, res) => {
+        // update specific workout
+    });
+}
 
