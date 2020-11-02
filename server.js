@@ -1,9 +1,24 @@
-// need to add dependencies
+const express = require("express");
+const logger = require("morgan");
+const mongoose = require("mongoose");
 
-// need to add middleware
+const PORT = process.env.PORT || 3000;
 
-// need to add mongoose mongodb connection
+const db = require("./models");
 
-// need to add html and api route
+const app = express();
 
-// need to add a listen to start the server
+app.use(logger("dev"));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+
+require("./routes/api-routes")(app);
+require("./routes/html-routes")(app);
+
+app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}!`);
+});
