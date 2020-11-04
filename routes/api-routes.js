@@ -2,23 +2,50 @@ const db = require("../models");
 
 module.exports = function(app){
     app.get("/api/workouts", (req, res) => {
-        // get all workouts
-    });
-
-    app.get("/api/workouts/:id", (req, res) => {
-        // get specific workout
+        db.Workout.find({})
+        .then((dbWorkout) => {
+            res.json(dbWorkout);
+        })
+        .catch((err) => {
+            res.json(err);
+        });
     });
 
     app.get("/api/workouts/range", (req, res) => {
-        // not sure what this is for jus yet but will code it once I figure that out
+        db.Workout.find({})
+        .limit(5)
+        .then((dbWorkout) => {
+            res.json(dbWorkout);
+        })
+        .catch((err) => {
+            res.json(err);
+        });
     });
 
     app.post("/api/workouts", (req, res) => {
-        // create a new workout
+        db.Workout.create({})
+        .then((dbWorkout) => {
+            res.json(dbWorkout);
+        })
+        .catch((err) => {
+            res.json(err);
+        });
     });
 
     app.put("/api/workouts/:id", (req, res) => {
-        // update specific workout
+        db.Workout.findByIdAndUpdate(req.params.id,
+            {
+                $push: {
+                    exercises: req.body
+                }
+            }
+            )
+        .then((dbWorkout) => {
+            res.json(dbWorkout);
+        })
+        .catch((err) => {
+            res.json(err);
+        });
     });
 }
 
