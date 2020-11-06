@@ -3,7 +3,7 @@
    [![Github](https://img.shields.io/badge/License-MIT-brightgreen)](#License)
 
    ## Description
-   Need to fill this out
+   This app will let you add and track various exercises during your workout. The total duration, weight lifted, distance covered, set/reps performed, and total exercises performed will show up on the main page once an exercise has been added. You can also check a stats dashboard that will show this information in various charts.
 
    ## Table of Contents
    * [Installation](#Installation)
